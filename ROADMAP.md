@@ -128,19 +128,19 @@ IG, duration close to the liabilities'), with every test green.
 
 ---
 
-## Phase 4: Frontier and return on capital (45 min)
+## Phase 4: Frontier and return on capital (45 min) ✅ done 2026-09-24
 
 **`src/iro/frontier.py`**
-- [ ] `efficient_frontier(b_min, b_max, n=25)`: budget sweep, then a table of (B, return, SCR, weights)
-- [ ] **RoSCR** = `(μᵀw·A − r(D_L)·L) / SCR_mkt`. That's the excess return over the cost of the
+- [x] `efficient_frontier(b_min, b_max, n=25)`: budget sweep, then a table of (B, return, SCR, weights)
+- [x] **RoSCR** = `(μᵀw·A − r(D_L)·L) / SCR_mkt`. That's the excess return over the cost of the
   liabilities, per euro of capital. Record this choice in the README.
-- [ ] Mark the max-RoSCR point
-- [ ] Save every run in the `runs` / `run_weights` / `run_metrics` tables
+- [x] Mark the max-RoSCR point
+- [x] Save every run in the `runs` / `run_weights` / `run_metrics` tables
 
 **`tests/test_frontier.py`**
-- [ ] Return is non-decreasing as the budget grows
+- [x] Return is non-decreasing as the budget grows
 
-**✅ Checkpoint 4:** the frontier plots (matplotlib is fine for checking) and bends
+**✅ Checkpoint 4 (passed: concavity checked by test; return 3.72 % → 4.61 % for SCR 23.5 → 94; RoSCR falls from 23 % to 15 %; 64 tests green):** the frontier plots (matplotlib is fine for checking) and bends
 concavely.
 
 ---
