@@ -101,29 +101,29 @@ loud without notes.
 
 ---
 
-## Phase 3: Returns and optimiser (1 h 30)
+## Phase 3: Returns and optimiser (1 h 30) ✅ done 2026-09-24
 
 **`src/iro/returns.py`**
-- [ ] μ per bucket (spec §2.3): govies = r(D); corporates = r(D) + spread − PD×LGD;
+- [x] μ per bucket (spec §2.3): govies = r(D); corporates = r(D) + spread − PD×LGD;
   equity = r(10) + ERP; property = r(10) + 3%; cash = r(0.25)
 
 **`src/iro/optimizer.py`**
-- [ ] `solve(budget, constraints) -> Result(weights, exp_return, scr, status)`
-- [ ] Variables `w ≥ 0`, `Σw = 1`, caps per bucket, BBB+HY ≤ 30%, HY ≤ 5%, EQ ≤ 10%, RE ≤ 10%
-- [ ] Duration gap: `|A·Σ wᵢDᵢ − L·D_L| / A ≤ τ`
-- [ ] Auxiliary variables `t_up ≥ loss_up(w)`, `t_up ≥ 0` (same for down)
-- [ ] Two SOC constraints: `‖chol(C)ᵀ · s‖₂ ≤ B`, one per scenario
-- [ ] Solver: `cp.CLARABEL`; handle `infeasible` cleanly (budget too low)
-- [ ] **After solving:** recompute the SCR with `scr.py` (outside cvxpy) and check it's ≤ B.
+- [x] `solve(budget, constraints) -> Result(weights, exp_return, scr, status)`
+- [x] Variables `w ≥ 0`, `Σw = 1`, caps per bucket, BBB+HY ≤ 30%, HY ≤ 5%, EQ ≤ 10%, RE ≤ 10%
+- [x] Duration gap: `|A·Σ wᵢDᵢ − L·D_L| / A ≤ τ`
+- [x] Auxiliary variables `t_up ≥ loss_up(w)`, `t_up ≥ 0` (same for down)
+- [x] Two SOC constraints: `‖chol(C)ᵀ · s‖₂ ≤ B`, one per scenario
+- [x] Solver: `cp.CLARABEL`; handle `infeasible` cleanly (budget too low)
+- [x] **After solving:** recompute the SCR with `scr.py` (outside cvxpy) and check it's ≤ B.
   This validates that the convex formulation matches the real formula.
 
 **`tests/test_optimizer.py`**
-- [ ] Weights sum to 1, all ≥ 0, every cap respected
-- [ ] Recomputed SCR(w*) ≤ B + 1e-6
-- [ ] Budget ×2 → expected return ≥ (never worse)
-- [ ] Very low budget → `status == infeasible`, no crash
+- [x] Weights sum to 1, all ≥ 0, every cap respected
+- [x] Recomputed SCR(w*) ≤ B + 1e-6
+- [x] Budget ×2 → expected return ≥ (never worse)
+- [x] Very low budget → `status == infeasible`, no crash
 
-**✅ Checkpoint 3:** a solve at B = 60 returns a sensible portfolio (mostly govies and
+**✅ Checkpoint 3 (passed: B = 60 → 54 % govies, 38 % A/BBB, 6 % equity, 2 % property, return 4.25 %, solved in 12 ms; min SCR 23.5, unconstrained SCR 94; 57 tests green):** a solve at B = 60 returns a sensible portfolio (mostly govies and
 IG, duration close to the liabilities'), with every test green.
 
 ---
