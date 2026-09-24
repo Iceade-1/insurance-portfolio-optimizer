@@ -162,17 +162,18 @@ updates every tab with no errors.
 
 ---
 
-## Phase 6: README, publication, application (45 min)
+## Phase 6: README, publication, application (45 min) ⏳ technical part done 2026-09-24; publishing and applying are Adam's call
 
-- [ ] **README.md**: the business problem (one paragraph); the model (formulas); why it's
+- [x] **README.md**: the business problem (one paragraph); the model (formulas); why it's
   convex (SOCP); **simplifications** (standard formula v1 = 2015 calibration, no symmetric
   adjustment, a single liability duration, spreads/PDs are assumptions); **what was checked**
   against the regulation; screenshots of the 4 tabs; how to run it; next steps (the Solvency II
   review, liability cash flows, ESG constraints, ex-post VaR)
-- [ ] Final `pytest` green, `pip freeze > requirements.txt`
-- [ ] Clean commits, then create a **public** GitHub repo `insurance-portfolio-optimizer`, then push
-- [ ] In the CV `.tex`: uncomment the GitHub line (CONTACT block) and recompile with `xelatex`
-- [ ] Go through the **"CV contract"** table (spec §0) and tick every line
+- [x] Final `pytest` green (68), pinned `requirements.txt`; **fresh clone, install, 68 tests green**
+- [x] Clean commits, pushed to GitHub as a **PRIVATE** repo (Adam's choice): https://github.com/Iceade-1/insurance-portfolio-optimizer
+- [ ] **Make it public** when ready: `gh repo edit Iceade-1/insurance-portfolio-optimizer --visibility public --accept-visibility-change-consequences`
+- [ ] In the CV `.tex`: uncomment the GitHub line (CONTACT block, URL already filled in) **once the repo is public**, then recompile with `xelatex`
+- [x] Go through the **"CV contract"** table (spec §0): every line ✅ except "repo public"
 - [ ] **Apply** on the Allianz portal (English CV, tick the consent box for AI support)
 - [ ] Update `Desktop\projects\CLAUDE.md` (paused task 1 → sent)
 
