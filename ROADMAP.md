@@ -72,31 +72,31 @@ and `pytest` runs (0 tests, no error).
 
 ---
 
-## Phase 2: SCR engine (1 h 30), the core of the project
+## Phase 2: SCR engine (1 h 30), the core of the project ✅ done 2026-09-24
 
 **`src/iro/scr.py`**
-- [ ] `spread_factor(duration, cqs)`: Art. 176 table (spec §2.4), capped at 100%, 0 for EEA govies
-- [ ] `ir_shocks(m)`: relative up/down shocks, interpolated; `Δy_up = max(r·s_up, 1%)`,
+- [x] `spread_factor(duration, cqs)`: Art. 176 table (spec §2.4), capped at 100%, 0 for EEA govies
+- [x] `ir_shocks(m)`: relative up/down shocks, interpolated; `Δy_up = max(r·s_up, 1%)`,
   `Δy_down = r·s_down` if r > 0, else 0
-- [ ] `scr_components(w)`: returns `{int_up, int_down, eq, prop, spread}` for a given weight vector
-- [ ] `C_UP`, `C_DOWN`: 4×4 correlation matrices (order IR, EQ, PROP, SPREAD)
-- [ ] `scr_market(w)`: aggregation in both scenarios, keeping the one whose interest charge
+- [x] `scr_components(w)`: returns `{int_up, int_down, eq, prop, spread}` for a given weight vector
+- [x] `C_UP`, `C_DOWN`: 4×4 correlation matrices (order IR, EQ, PROP, SPREAD)
+- [x] `scr_market(w)`: aggregation in both scenarios, keeping the one whose interest charge
   is the larger (Art. 164), plus the diversification benefit
-- [ ] `scr_by_bucket(w)`: contribution of each bucket, for the chart
+- [x] `scr_by_bucket(w)`: contribution of each bucket, for the chart
 
 **`tests/test_scr.py`** (write the tests **alongside** the code)
-- [ ] `spread_factor(3, 3) == 0.075` (BBB, d=3 → 2.5%×3)
-- [ ] `spread_factor(7, 2) == 0.084` (A, d=7 → 7% + 0.7%×2)
-- [ ] `spread_factor(0, 0) == 0`, and any govvie → 0
-- [ ] `C_UP` and `C_DOWN` are positive definite (`np.linalg.cholesky` doesn't raise)
-- [ ] A 100% equity portfolio → `eq == 0.39 × A`
-- [ ] Diversification benefit ≥ 0
+- [x] `spread_factor(3, 3) == 0.075` (BBB, d=3 → 2.5%×3)
+- [x] `spread_factor(7, 2) == 0.084` (A, d=7 → 7% + 0.7%×2)
+- [x] Duration floored at 1 (`spread_factor(0.5, 0) == 0.009`); govies → 0 via asset class (Art. 180(2))
+- [x] `C_UP` and `C_DOWN` are positive definite (`np.linalg.cholesky` doesn't raise)
+- [x] A 100% equity portfolio → `eq == 0.39 × A`
+- [x] Diversification benefit ≥ 0
 
-**⚠️ Check before moving on:** compare the spread table and the rate shocks against the text of
+**✅ Checked against the Official Journal PDF (3 AA values corrected: 8.4 / 10.9 / 13.4 %).** Originally: compare the spread table and the rate shocks against the text of
 Delegated Regulation (EU) 2015/35 (Art. 164, 166, 167, 176). They were written from memory.
 Keep a note in the README of what was checked.
 
-**✅ Checkpoint 2:** `pytest tests/test_scr.py` is green, and you can explain each formula out
+**✅ Checkpoint 2 (passed: 41 tests green; typical insurer mix → SCR_mkt 67, solvency 149 %):** `pytest tests/test_scr.py` is green, and you can explain each formula out
 loud without notes.
 
 ---
