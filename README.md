@@ -32,7 +32,7 @@ and shows **where the capital goes**.
 ## Quick start
 
 ```powershell
-git clone https://github.com/<username>/insurance-portfolio-optimizer.git
+git clone https://github.com/Iceade-1/insurance-portfolio-optimizer.git
 cd insurance-portfolio-optimizer
 python -m venv .venv
 .venv\Scripts\Activate.ps1          # macOS / Linux: source .venv/bin/activate
