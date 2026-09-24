@@ -145,19 +145,19 @@ concavely.
 
 ---
 
-## Phase 5: Streamlit app (1 h 30)
+## Phase 5: Streamlit app (1 h 30) ✅ done 2026-09-24
 
 **`app.py`: 4 tabs**
-1. [ ] **Inputs:** balance sheet (A, L, D_L), SCR budget slider, constraint limits, editable
+1. [x] **Inputs:** balance sheet (A, L, D_L), SCR budget slider, constraint limits, editable
    assumptions table (`st.data_editor`), "Refresh ECB curve" button
-2. [ ] **Optimal portfolio:** weights bar chart plus KPIs (expected return, SCR_mkt, solvency
+2. [x] **Optimal portfolio:** weights bar chart plus KPIs (expected return, SCR_mkt, solvency
    ratio, duration gap, RoSCR)
-3. [ ] **Efficient frontier:** Plotly chart of return vs SCR, with the current point and the max-RoSCR point
-4. [ ] **Capital decomposition:** waterfall (IR + EQ + PROP + SPREAD → −diversification → SCR_mkt)
+3. [x] **Efficient frontier:** Plotly chart of return vs SCR, with the current point and the max-RoSCR point
+4. [x] **Capital decomposition:** waterfall (IR + EQ + PROP + SPREAD → −diversification → SCR_mkt)
    plus SCR by bucket
-- [ ] `@st.cache_data` on the curve loading
+- [x] `@st.cache_data` on the curve loading
 
-**✅ Checkpoint 5:** `streamlit run app.py` works from a fresh clone, and moving the slider
+**✅ Checkpoint 5 (passed: real server + Playwright screenshots of the 4 tabs, 0 exceptions; 4 AppTest tests including slider and save; 68 tests green):** `streamlit run app.py` works from a fresh clone, and moving the slider
 updates every tab with no errors.
 
 ---
