@@ -1,0 +1,10 @@
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+cvxpy==1.9.3
+clarabel==0.11.1
+streamlit==1.64.0
+plotly==7.1.0
+requests==2.34.2
+pytest==9.1.1
+-e .
