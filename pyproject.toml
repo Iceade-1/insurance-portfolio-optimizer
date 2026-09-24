@@ -24,5 +24,9 @@ dev = ["pytest>=8"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+iro = ["schema.sql"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["network: needs access to the ECB Data Portal"]

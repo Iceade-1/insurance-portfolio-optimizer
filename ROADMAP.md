@@ -53,21 +53,21 @@ and `pytest` runs (0 tests, no error).
 
 ---
 
-## Phase 1: Data (1 h)
+## Phase 1: Data (1 h) ✅ done 2026-09-24
 
-**`schema.sql` + `src/iro/db.py`**
-- [ ] 6 tables: `assets`, `yield_curve`, `assumptions`, `runs`, `run_weights`, `run_metrics` (spec §2.6)
-- [ ] `init_db(path)`: creates the tables, seeds the 12 buckets (spec §2.2) and the assumptions
+**`src/iro/schema.sql` (shipped inside the package) + `src/iro/db.py`**
+- [x] 6 tables: `assets`, `yield_curve`, `assumptions`, `runs`, `run_weights`, `run_metrics` (spec §2.6)
+- [x] `init_db(path)`: creates the tables, seeds the 12 buckets (spec §2.2) and the assumptions
   (A = 1000, L = 900, D_L = 10, ERP = 5%, property premium = 3%, τ = 0.5, caps)
-- [ ] `save_run(...)` / `load_runs()`
+- [x] `save_run(...)` / `load_runs()`
 
 **`src/iro/data_ecb.py`**
-- [ ] `fetch_curve()`: ECB AAA spot curve, maturities 3M, 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 15Y, 20Y, 30Y
+- [x] `fetch_curve()`: ECB AAA spot curve, maturities 3M, 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 15Y, 20Y, 30Y
   (URL in spec §2.7), inserted into `yield_curve`
-- [ ] **Hard-coded fallback curve** if the API fails (needed for a live interview demo)
-- [ ] `rate(m)`: linear interpolation, flat extrapolation beyond 30Y
+- [x] **Hard-coded fallback curve** if the API fails (needed for a live interview demo)
+- [x] `rate(m)`: linear interpolation, flat extrapolation beyond 30Y
 
-**✅ Checkpoint 1:** `init_db` + `fetch_curve` run, `SELECT * FROM yield_curve` returns
+**✅ Checkpoint 1 (passed: live ECB curve of 2026-09-23, 10 rows, r(6) = 3.363% between r(5) = 3.330% and r(7) = 3.396%; 13 tests green):** `init_db` + `fetch_curve` run, `SELECT * FROM yield_curve` returns
 10 rows, and `rate(6)` gives a plausible rate (between r(5) and r(7)).
 
 ---
