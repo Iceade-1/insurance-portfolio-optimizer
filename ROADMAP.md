@@ -170,8 +170,8 @@ updates every tab with no errors.
   against the regulation; screenshots of the 4 tabs; how to run it; next steps (the Solvency II
   review, liability cash flows, ESG constraints, ex-post VaR)
 - [x] Final `pytest` green (68), pinned `requirements.txt`; **fresh clone, install, 68 tests green**
-- [x] Clean commits, pushed to GitHub as a **PRIVATE** repo (Adam's choice): https://github.com/Iceade-1/insurance-portfolio-optimizer
-- [ ] **Make it public** when ready: `gh repo edit Iceade-1/insurance-portfolio-optimizer --visibility public --accept-visibility-change-consequences`
+- [x] Clean commits, pushed to GitHub: https://github.com/Iceade-1/insurance-portfolio-optimizer
+- [x] Made public (2026-10-22), MIT licence added
 - [ ] In the CV `.tex`: uncomment the GitHub line (CONTACT block, URL already filled in) **once the repo is public**, then recompile with `xelatex`
 - [x] Go through the **"CV contract"** table (spec §0): every line ✅ except "repo public"
 - [ ] **Apply** on the Allianz portal (English CV, tick the consent box for AI support)
